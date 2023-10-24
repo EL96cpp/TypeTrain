@@ -1,0 +1,22 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Texts/a.txt</file>
+        <file>Texts/d.txt</file>
+        <file>Texts/e.txt</file>
+        <file>Texts/q.txt</file>
+        <file>Texts/t.txt</file>
+        <file>Texts/v.txt</file>
+        <file>Texts/x.txt</file>
+        <file>Texts/z.txt</file>
+        <file>Texts/в.txt</file>
+        <file>Texts/е.txt</file>
+        <file>Texts/м.txt</file>
+        <file>Texts/у.txt</file>
+        <file>Texts/ф.txt</file>
+        <file>Texts/ч.txt</file>
+        <file>Texts/я.txt</file>
+        <file>Texts/й.txt</file>
+        <file>Images/background.jpg</file>
+        <file>Images/exit_image.png</file>
+    </qresource>
+</RCC>
