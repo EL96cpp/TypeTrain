@@ -63,7 +63,7 @@ Page {
             property int small_button_width: 200
             property int small_button_height: 200
             property int small_button_margin: 10
-            property int font_size: 35
+            property int font_size_value: 35
 
             delegate: RoundButton {
 
@@ -76,7 +76,8 @@ Page {
                 Layout.maximumHeight: 200
 
                 text: modelData
-                font.pixelSize: grid_eng.font_size
+                font.family: typing_font.name
+                font.pointSize: grid_eng.font_size_value
 
                 background: Rectangle {
 
@@ -109,7 +110,8 @@ Page {
         Layout.maximumHeight: 50
 
         text: "Return"
-        font.pixelSize: grid_eng.font_size
+        font.family: logo_font.name
+        font.pointSize: 25
 
         anchors.right: eng_grid_rect.right
         anchors.top: eng_grid_rect.bottom

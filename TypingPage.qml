@@ -255,9 +255,11 @@ Page {
 
                 id: block1
                 text: container.text.substring(0, typing_page.position)
+                font.family: typing_font.name
                 font.pointSize: 50
                 font.wordSpacing: 10
                 color: "black"
+
 
             }
 
@@ -273,6 +275,7 @@ Page {
 
                     id: block2
                     text: container.text.substring(typing_page.position, typing_page.position+1)
+                    font.family: typing_font.name
                     font.pointSize: 50
                     font.underline: true
                     font.wordSpacing: 10
@@ -285,6 +288,7 @@ Page {
 
                 id: block3
                 text: container.text.substring(typing_page.position+1)
+                font.family: typing_font.name
                 font.pointSize: 50
                 font.wordSpacing: 10
                 color: "black"
@@ -357,6 +361,7 @@ Page {
                 id: minutes_text
                 text: (typing_page.minutes >= 10) ? typing_page.minutes : "0" + typing_page.minutes
                 color: "#e1e400"
+                font.family: typing_font.name
                 font.pointSize: 20
             }
 
@@ -365,6 +370,7 @@ Page {
                 id: seconds_text
                 text: ":" + ((seconds >= 10) ? seconds : "0" + seconds)
                 color: "#e1e400"
+                font.family: typing_font.name
                 font.pointSize: 20
             }
 
@@ -527,6 +533,7 @@ Page {
                         id: first_row_text
                         anchors.centerIn: parent
                         text: (left_shift_active || right_shift_active) ? model.shift_active_text : model.shift_disabled_text
+                        font.family: typing_font.name
                         color: text == block2.text ? "white" : "black"
                         font.pointSize: 20
 
@@ -649,6 +656,7 @@ Page {
 
                         id: second_row_text
                         anchors.centerIn: parent
+                        font.family: typing_font.name
                         text: (left_shift_active || right_shift_active) ? model.shift_active_text : model.shift_disabled_text
                         color: text == block2.text ? "white" : "black"
                         font.pointSize: 20
@@ -770,6 +778,7 @@ Page {
 
                         id: third_row_text
                         anchors.centerIn: parent
+                        font.family: typing_font.name
                         text: (left_shift_active || right_shift_active) ? model.shift_active_text : model.shift_disabled_text
                         color: text == block2.text ? "white" : "black"
                         font.pointSize: 20
@@ -926,6 +935,7 @@ Page {
                     Text {
 
                         anchors.centerIn: parent
+                        font.family: typing_font.name
                         text: modelData.text
                         color: modelData.text == block2.text ? "white" : "black"
                         font.pointSize: 20
@@ -972,6 +982,7 @@ Page {
             anchors.top: dialog.top
             anchors.topMargin: 10
             anchors.horizontalCenter: dialog.horizontalCenter
+            font.family: typing_font.name
             font.pointSize: 30
             font.bold: true
 
@@ -991,6 +1002,7 @@ Page {
                 id: result_mistakes_text
                 anchors.horizontalCenter: parent.horizontalCenter
                 text: "Mistakes:"
+                font.family: typing_font.name
                 font.pointSize: 25
                 color: "white"
 
@@ -1001,6 +1013,7 @@ Page {
                 id: result_time_text
                 anchors.horizontalCenter: parent.horizontalCenter
                 text: "Total time:"
+                font.family: typing_font.name
                 font.pointSize: 25
                 color: "white"
 
@@ -1011,6 +1024,7 @@ Page {
                 id: restart_button
                 anchors.horizontalCenter: parent.horizontalCenter
                 text: "Restart"
+                font.family: typing_font.name
                 font.pointSize: 20
                 width: 200
                 height: 50
@@ -1054,6 +1068,7 @@ Page {
                 id: result_mistakes_data
                 anchors.horizontalCenter: parent.horizontalCenter
                 text: typing_page.mistakes_counter
+                font.family: typing_font.name
                 font.pointSize: 25
                 color: "white"
 
@@ -1064,6 +1079,7 @@ Page {
                 id: result_time_data
                 anchors.horizontalCenter: parent.horizontalCenter
                 text: minutes_text.text + seconds_text.text
+                font.family: typing_font.name
                 font.pointSize: 25
                 color: "white"
 
@@ -1074,6 +1090,7 @@ Page {
                 id: exit_button
                 anchors.horizontalCenter: parent.horizontalCenter
                 text:"Exit"
+                font.family: typing_font.name
                 font.pointSize: 20
                 width: 200
                 height: 50

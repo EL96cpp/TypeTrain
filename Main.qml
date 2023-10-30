@@ -74,8 +74,16 @@ Window {
 
     FontLoader {
 
-        id: custom_font
-        source: "Font.ttf"
+        id: logo_font
+        source: "qrc:/Fonts/Font.ttf"
+
+    }
+
+
+    FontLoader {
+
+        id: typing_font
+        source: "qrc:/Fonts/TypingFont.ttf"
 
     }
 

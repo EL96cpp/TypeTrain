@@ -18,5 +18,7 @@
         <file>Texts/й.txt</file>
         <file>Images/background.jpg</file>
         <file>Images/exit_image.png</file>
+        <file>Fonts/Font.ttf</file>
+        <file>Fonts/TypingFont.ttf</file>
     </qresource>
 </RCC>

@@ -47,7 +47,7 @@ Page {
 
             id: main_label
             text: "Type Train"
-            font.family: custom_font.name
+            font.family: logo_font.name
             font.pointSize: 150
             color: "white"
             style: Text.Outline
@@ -79,7 +79,7 @@ Page {
             anchors.topMargin: height/2
 
             text: "English"
-            font.family: custom_font.name
+            font.family: logo_font.name
             font.pixelSize: 35
 
             background: Rectangle {
@@ -109,7 +109,7 @@ Page {
 
             text: "Russian"
             font.pixelSize: 35
-            font.family: custom_font.name
+            font.family: logo_font.name
 
 
             background: Rectangle {

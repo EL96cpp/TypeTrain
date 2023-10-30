@@ -21,7 +21,7 @@ qt_add_qml_module(appTypeTrainer
     URI TypeTrainer
     VERSION 1.0
     QML_FILES Main.qml WaveEffect.qml TypingPage.qml LangChoosePage.qml RussianPage.qml EnglishPage.qml ButtonDelegate.qml LeftShiftDelegate.qml RightShiftDelegate.qml
-    RESOURCES Font.ttf TypingPage.qml ButtonDelegate.qml LeftShiftDelegate.qml RightShiftDelegate.qml
+    RESOURCES TypingPage.qml ButtonDelegate.qml LeftShiftDelegate.qml RightShiftDelegate.qml
 )
 
 set_target_properties(appTypeTrainer PROPERTIES

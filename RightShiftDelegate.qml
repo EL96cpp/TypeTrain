@@ -20,6 +20,7 @@ Rectangle {
 
         id: right_shift_text
         anchors.centerIn: parent
+        font.family: typing_font.name
         text: "Shift"
         color: typing_page.right_shift_active ? "white" : "black"
         font.pointSize: 20

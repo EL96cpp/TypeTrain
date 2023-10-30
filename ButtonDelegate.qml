@@ -20,6 +20,7 @@ Rectangle {
 
         id: fourth_row_text
         anchors.centerIn: parent
+        font.family: typing_font.name
         text: (left_shift_active || right_shift_active) ? model.shift_active_text : model.shift_disabled_text
         color: text == block2.text ? "white" : "black"
         font.pointSize: 20
