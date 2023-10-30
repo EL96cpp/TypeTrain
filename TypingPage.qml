@@ -41,7 +41,7 @@ Page {
 
             var first_row_element = first_row_model.get(i);
 
-            if (first_row_element.shift_active_text == block2.text) {
+            if (first_row_element.shift_active_text == text_current.text) {
 
                 left_shift_active = (first_row_element.hand == "right");
                 right_shift_active = (first_row_element.hand == "left");
@@ -54,7 +54,7 @@ Page {
 
             var second_row_element = second_row_model.get(i);
 
-            if (second_row_element.shift_active_text == block2.text) {
+            if (second_row_element.shift_active_text == text_current.text) {
 
                 left_shift_active = (second_row_element.hand == "right");
                 right_shift_active = (second_row_element.hand == "left");
@@ -67,7 +67,7 @@ Page {
 
             var third_row_element = third_row_model.get(i);
 
-            if (third_row_element.shift_active_text == block2.text) {
+            if (third_row_element.shift_active_text == text_current.text) {
 
                 left_shift_active = (third_row_element.hand == "right");
                 right_shift_active = (third_row_element.hand == "left");
@@ -80,7 +80,7 @@ Page {
 
             var fourth_row_element = fourth_row_model.get(i);
 
-            if (fourth_row_element.shift_active_text == block2.text) {
+            if (fourth_row_element.shift_active_text == text_current.text) {
 
                 left_shift_active = (fourth_row_element.hand == "right");
                 right_shift_active = (fourth_row_element.hand == "left");
@@ -168,7 +168,7 @@ Page {
 
     Rectangle {
 
-        id: outer
+        id: outer_rect
         width: 1200
         height: 100
         anchors.horizontalCenter: parent.horizontalCenter
@@ -201,16 +201,16 @@ Page {
 
                                 typing_page.position++;
                                 typing_page.updateShiftsActiveValue();
-                                block2.color = "#DFE210";
+                                text_current.color = "#DFE210";
 
                             } else {
 
                                 typing_page.mistakes_counter++;
-                                block2.color = "red";
+                                text_current.color = "red";
 
                             }
 
-                            if (block2.text == "") {
+                            if (text_current.text == "") {
 
                                 typing_page.game_finished = true;
                                 timer.stop();
@@ -223,7 +223,7 @@ Page {
         {
 
             id: container
-            x: (outer.width / 2 - block1.contentWidth)
+            x: (outer_rect.width / 2 - text_accepted.contentWidth)
             y: 5
             focus: !typing_page.game_finished
 
@@ -238,22 +238,22 @@ Page {
             TextMetrics {
 
                 id: metrics1
-                text: block1.text
-                font: block1.font
+                text: text_accepted.text
+                font: text_accepted.font
 
             }
 
             TextMetrics {
 
                 id: metrics2
-                text: block2.text
-                font: block2.font
+                text: text_current.text
+                font: text_current.font
 
             }
 
             Text {
 
-                id: block1
+                id: text_accepted
                 text: container.text.substring(0, typing_page.position)
                 font.family: typing_font.name
                 font.pointSize: 50
@@ -267,13 +267,13 @@ Page {
 
                 id: text_background
                 y: -5
-                width: block2.text == " " ? 30 : metrics2.width + 10
-                height: outer.height
+                width: text_current.text == " " ? 30 : metrics2.width + 10
+                height: outer_rect.height
                 color: "#004740"
 
                 Text {
 
-                    id: block2
+                    id: text_current
                     text: container.text.substring(typing_page.position, typing_page.position+1)
                     font.family: typing_font.name
                     font.pointSize: 50
@@ -286,7 +286,7 @@ Page {
 
             Text {
 
-                id: block3
+                id: text_upcoming
                 text: container.text.substring(typing_page.position+1)
                 font.family: typing_font.name
                 font.pointSize: 50
@@ -300,11 +300,11 @@ Page {
 
         Rectangle {
 
-            id: inner
-            width: outer.width/2
-            height: outer.height - outer.border.width*2
-            anchors.verticalCenter: outer.verticalCenter
-            anchors.right: outer.horizontalCenter
+            id: inner_rect
+            width: outer_rect.width/2
+            height: outer_rect.height - outer_rect.border.width*2
+            anchors.verticalCenter: outer_rect.verticalCenter
+            anchors.right: outer_rect.horizontalCenter
             color: "#EE004740"
 
         }
@@ -384,7 +384,7 @@ Page {
 
         id: keyboard
         anchors.horizontalCenter: parent.horizontalCenter
-        anchors.top: outer.bottom
+        anchors.top: outer_rect.bottom
         anchors.topMargin: 250
 
         property string language: typing_page.language
@@ -524,9 +524,9 @@ Page {
                     width: model.button_width
                     height: main_rect.button_height
                     radius: 10
-                    color: first_row_text.text == block2.text ? main_rect.selection_color : model.color
+                    color: first_row_text.text == text_current.text ? main_rect.selection_color : model.color
                     border.width: 2
-                    border.color: first_row_text.text == block2.text ? "white" : "black"
+                    border.color: first_row_text.text == text_current.text ? "white" : "black"
 
                     Text {
 
@@ -534,7 +534,7 @@ Page {
                         anchors.centerIn: parent
                         text: (left_shift_active || right_shift_active) ? model.shift_active_text : model.shift_disabled_text
                         font.family: typing_font.name
-                        color: text == block2.text ? "white" : "black"
+                        color: text == text_current.text ? "white" : "black"
                         font.pointSize: 20
 
                     }
@@ -648,9 +648,9 @@ Page {
                     width: model.button_width
                     height: main_rect.button_height
                     radius: 10
-                    color: second_row_text.text == block2.text ? main_rect.selection_color : model.color
+                    color: second_row_text.text == text_current.text ? main_rect.selection_color : model.color
                     border.width: 2
-                    border.color: second_row_text.text == block2.text ? "white" : "black"
+                    border.color: second_row_text.text == text_current.text ? "white" : "black"
 
                     Text {
 
@@ -658,7 +658,7 @@ Page {
                         anchors.centerIn: parent
                         font.family: typing_font.name
                         text: (left_shift_active || right_shift_active) ? model.shift_active_text : model.shift_disabled_text
-                        color: text == block2.text ? "white" : "black"
+                        color: text == text_current.text ? "white" : "black"
                         font.pointSize: 20
 
                     }
@@ -770,9 +770,9 @@ Page {
                     width: model.button_width
                     height: main_rect.button_height
                     radius: 10
-                    color: third_row_text.text == block2.text ? main_rect.selection_color : model.color
+                    color: third_row_text.text == text_current.text ? main_rect.selection_color : model.color
                     border.width: 2
-                    border.color: third_row_text.text == block2.text ? "white" : "black"
+                    border.color: third_row_text.text == text_current.text ? "white" : "black"
 
                     Text {
 
@@ -780,7 +780,7 @@ Page {
                         anchors.centerIn: parent
                         font.family: typing_font.name
                         text: (left_shift_active || right_shift_active) ? model.shift_active_text : model.shift_disabled_text
-                        color: text == block2.text ? "white" : "black"
+                        color: text == text_current.text ? "white" : "black"
                         font.pointSize: 20
 
                     }
@@ -928,16 +928,16 @@ Page {
                     width: modelData.width
                     height: main_rect.button_height
                     radius: 10
-                    color: modelData.text == block2.text ? main_rect.selection_color : modelData.color
+                    color: modelData.text == text_current.text ? main_rect.selection_color : modelData.color
                     border.width: 2
-                    border.color: modelData.text == block2.text ? "white" : "black"
+                    border.color: modelData.text == text_current.text ? "white" : "black"
 
                     Text {
 
                         anchors.centerIn: parent
                         font.family: typing_font.name
                         text: modelData.text
-                        color: modelData.text == block2.text ? "white" : "black"
+                        color: modelData.text == text_current.text ? "white" : "black"
                         font.pointSize: 20
 
                     }
@@ -970,7 +970,7 @@ Page {
 
         }
 
-        anchors.top: outer.bottom
+        anchors.top: outer_rect.bottom
         anchors.topMargin: -50
         anchors.horizontalCenter: parent.horizontalCenter
 
