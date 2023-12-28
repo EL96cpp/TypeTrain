@@ -53,8 +53,6 @@ Page {
             width: 1200
             height: 500
 
-
-
             cellWidth: 300
             cellHeight: 300
 

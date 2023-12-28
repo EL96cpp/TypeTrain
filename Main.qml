@@ -33,7 +33,7 @@ Window {
     Connections {
 
         target: TxtReader
-        onReturnTextToQML: {
+        function onReturnTextToQML(language, lesson_text) {
 
             stack_view.push(typing_page, {language: language, typing_text: lesson_text, mistakes_counter: 0, position: 0,
                                           minutes: 0, seconds: 0, game_started: false, game_finished: false,
@@ -43,7 +43,7 @@ Window {
 
         }
 
-        onOpenTxtError: {
+        function onOpenTxtError(file_path) {
 
             txt_error_dialog.txt_file_path = file_path;
             txt_error_dialog.visible = true;
@@ -56,7 +56,7 @@ Window {
     Connections {
 
         target: typing_page
-        onBackToChoosePage: {
+        function onBackToChoosePage() {
             stack_view.pop();
         }
 
