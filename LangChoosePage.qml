@@ -3,7 +3,7 @@ import QtQuick.Window
 import QtQuick.Shapes 1.5
 import QtQuick.Controls 2.5
 import QtQuick.Layouts 1.3
-import Qt5Compat.GraphicalEffects
+//import Qt5Compat.GraphicalEffects
 
 Page {
 
